@@ -1,0 +1,162 @@
+{
+  "formConfig": {
+    "backgroundColor": "#FFFFFF",
+    "padding": 20,
+    "rowSpacing": 18
+  },
+
+  "layout": {
+    "rows": [
+      {
+        "layoutType": "custom",
+         "fieldGap": 16.0,
+        "columns": 2,
+        "columnGap": 20,
+        "fields": [
+          {
+            "type": "date",
+            "key": "startDate",
+            "label": "Start Date",
+            "defaultValue": "",            
+            "config": {
+              "behavior": { "readOnly": true },
+              "text": { "placeholder": "Start date" }
+            }
+          },
+          {
+            "type": "date",
+            "key": "endDate",
+            "label": "End Date",
+            "defaultValue": "",            
+            "config": {
+              "behavior": { "readOnly": true },
+              "text": { "placeholder": "End date" }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "custom",
+        "fieldGap": 16.0,
+        "columns": 2,
+        "columnGap": 20,
+        "fields": [
+          {
+            "type": "dropdown",
+            "key": "leaveTypeName",
+            "label": "Leave Type",
+            "defaultValue": "",            
+            "config": {
+              "behavior": { "required": true },
+              "data": {
+                "options": []
+              }
+            }
+          },
+          {
+            "type": "dropdown",
+            "key": "session",
+            "label": "Session",
+            "defaultValue": "",            
+            "config": {
+              "behavior": { "required": true },
+              "data": {
+                "options": [
+                  { "label": "FULL DAY", "value": "FULL_DAY" },
+                  { "label": "FIRST HALF", "value": "FIRST_HALF" },
+                  { "label": "SECOND HALF", "value": "SECOND_HALF" }
+                ]
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "text",
+            "key": "remarks",
+            "label": "Remarks",
+            "defaultValue": "",             
+            "config": {
+              "placement": { "maxLines": 4 }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "dropdown",
+            "key": "status",
+            "label": "Status",
+            "defaultValue": "",             
+            "config": {
+              "behavior": { "readOnly": true },
+              "data": {
+                "options": [
+                  { "label": "NEW", "value": "NEW" },
+                  { "label": "SUBMITTED", "value": "SUBMITTED" },
+                  { "label": "APPROVED", "value": "APPROVED" },
+                  { "label": "REJECTED", "value": "REJECTED" }
+                ]
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "isFooter": true,
+        "layoutType": "alignment",
+        "alignment": "center",
+        "fieldGap": 20,
+        "fields": [
+          {
+            "type": "button",
+            "label": "Update",
+            "key": "update",
+            "action": {
+              "type": "submit",
+              "payload": {
+                "endpoint": "/api/leaves/modify/{leaveId}"
+              }
+            },
+            "config": {
+              "style": {
+                "backgroundColor": "#0D6EFD",
+                "textColor": "#FFFFFF",
+                "padding": 12,
+                "borderRadius": 8
+              }
+            }
+          },
+          {
+            "type": "button",
+            "label": "Delete",
+            "key": "delete",
+            "action": {
+              "type": "delete",
+              "payload": {
+                "endpoint": "/api/leaves/delete/{leaveId}"
+              }
+            },
+            "config": {
+              "style": {
+                "backgroundColor": "#DC3545",
+                "textColor": "#FFFFFF",
+                "padding": 12,
+                "borderRadius": 8
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

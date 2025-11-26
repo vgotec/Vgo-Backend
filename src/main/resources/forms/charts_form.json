@@ -1,0 +1,326 @@
+{
+  "theme": {
+    "primaryColor": "#1565C0",
+    "cardBackground": "#FFFFFF",
+    "textColor": "#1A1A1A",
+    "borderRadius": 16
+  },
+
+  "grid": {
+    "columns": 2,
+    "spacing": 12,
+    "padding": 12
+  },
+
+  "dashboardLayout": [
+    {
+      "id": "timesheet-section",
+      "title": "Timesheet Daily Hours",
+      "order": 1,
+      "visible": true,
+      "widgetType": "STACKED_BAR",
+      "graphType": "STACKED_BAR",
+      "api": "/api/dashboard/daily-hours",
+      "dataKey": "dailyHours",
+
+      "style": {
+        "height": 280,
+        "backgroundColor": "#FFFFFF",
+        "titleColor": "#1565C0",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16,
+        "colors": {
+          "development": "#42A5F5",
+          "testing": "#66BB6A",
+          "documentation": "#FFA726",
+          "meeting": "#AB47BC"
+        }
+      },
+
+      "layout": {
+        "span": 2,
+        "fullWidth": true,
+        "alignment": "center"
+      },
+
+      "chartOptions": {
+        "showLegend": true,
+        "legendPosition": "bottom",
+        "xAxisLabelColor": "#424242",
+        "yAxisLabelColor": "#424242",
+        "animationDuration": 1200
+      }
+    },
+
+    {
+      "id": "leave-section",
+      "title": "Leave Usage Trend",
+      "order": 2,
+      "visible": true,
+      "widgetType": "LINE_CHART",
+      "graphType": "LINE_CHART",
+      "api": "/api/dashboard/leave-trend",
+      "dataKey": "leaveTrend",
+
+      "style": {
+        "height": 240,
+        "backgroundColor": "#FFFFFF",
+        "titleColor": "#1565C0",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16,
+        "lineColor": "#FF7043"
+      },
+
+      "layout": {
+        "span": 1,
+        "fullWidth": false
+      },
+
+      "chartOptions": {
+        "lineThickness": 3,
+        "markerVisibility": true,
+        "animationDuration": 1500
+      }
+    },
+
+    {
+      "id": "leave-kpi-section",
+      "title": "Leave Balance (KPI Cards)",
+      "order": 11,
+      "visible": true,
+      "widgetType": "KPI_CARD_GROUP",
+      "graphType": "KPI_CARD_GROUP",
+      "api": "/api/dashboard/leave-balance",
+      "dataKey": "leaveBalance",
+
+      "style": {
+        "height": 200,
+        "backgroundColor": "#F5F5F5",
+        "padding": 12,
+        "margin": 12,
+        "borderRadius": 16,
+        "kpiCardColor": "#FFFFFF",
+        "kpiTitleColor": "#424242",
+        "kpiValueColor": "#1565C0"
+      },
+
+      "layout": {
+        "span": 2,
+        "fullWidth": true
+      }
+    },
+
+    {
+      "id": "productivity-section",
+      "title": "Monthly Productivity",
+      "order": 4,
+      "visible": true,
+      "widgetType": "GAUGE",
+      "graphType": "GAUGE",
+      "api": "/api/dashboard/productivity",
+      "dataKey": "productivity",
+
+      "style": {
+        "height": 260,
+        "backgroundColor": "#FFFFFF",
+        "titleColor": "#1565C0",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16
+      },
+
+      "chartOptions": {
+        "gaugeStartAngle": 180,
+        "gaugeEndAngle": 0,
+        "rangeColors": ["#E57373", "#FFB74D", "#81C784"],
+        "animationDuration": 1500
+      },
+
+      "layout": {
+        "span": 1
+      }
+    },
+
+    {
+      "id": "project-effort-section",
+      "title": "Project Effort Analysis",
+      "order": 5,
+      "visible": true,
+      "widgetType": "HORIZONTAL_BAR",
+      "graphType": "HORIZONTAL_BAR",
+      "api": "/api/dashboard/project-hours",
+      "dataKey": "projectHours",
+
+      "style": {
+        "height": 260,
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 16,
+        "padding": 16,
+        "margin": 12,
+        "barColor": "#29B6F6"
+      },
+
+      "layout": {
+        "span": 1
+      }
+    },
+
+    {
+      "id": "focus-area-section",
+      "title": "Focus Area Breakdown",
+      "order": 6,
+      "visible": true,
+      "widgetType": "DONUT",
+      "graphType": "DONUT",
+      "api": "/api/dashboard/focus-area",
+      "dataKey": "focusAreaBreakdown",
+
+      "style": {
+        "height": 260,
+        "backgroundColor": "#FFFFFF",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16,
+        "colors": ["#42A5F5", "#66BB6A", "#FFD54F", "#EF5350"]
+      },
+
+      "chartOptions": {
+        "innerRadius": 70,
+        "animationDuration": 1200,
+        "showLabels": true
+      },
+
+      "layout": {
+        "span": 1
+      }
+    },
+
+    {
+      "id": "weekly-burn-section",
+      "title": "Weekly Burn Rate",
+      "order": 7,
+      "visible": true,
+      "widgetType": "BURNDOWN",
+      "graphType": "BURNDOWN",
+      "api": "/api/dashboard/weekly-burn-rate",
+      "dataKey": "weeklyBurnRate",
+
+      "style": {
+        "height": 240,
+        "backgroundColor": "#FFFFFF",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16,
+        "lineColor": "#EF5350"
+      },
+
+      "chartOptions": {
+        "lineThickness": 3,
+        "markerVisibility": true
+      },
+
+      "layout": {
+        "span": 1
+      }
+    },
+
+    {
+      "id": "project-load-section",
+      "title": "Project Load Distribution",
+      "order": 8,
+      "visible": true,
+      "widgetType": "STACKED_BAR",
+      "graphType": "STACKED_BAR",
+      "api": "/api/dashboard/project-load",
+      "dataKey": "projectLoad",
+
+      "style": {
+        "height": 260,
+        "backgroundColor": "#FFFFFF",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16
+      },
+
+      "layout": {
+        "span": 2,
+        "fullWidth": true
+      }
+    },
+
+    {
+      "id": "session-breakdown-section",
+      "title": "Session Breakdown",
+      "order": 9,
+      "visible": false,
+      "widgetType": "PIE_CHART",
+      "graphType": "PIE_CHART",
+      "api": "/api/dashboard/session-breakdown",
+      "dataKey": "sessionBreakdown",
+
+      "style": {
+        "height": 240,
+        "backgroundColor": "#FFFFFF",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16
+      },
+
+      "chartOptions": {
+        "animationDuration": 1200,
+        "showLabels": true
+      },
+
+      "layout": {
+        "span": 1
+      }
+    },
+
+    {
+      "id": "missing-days-section",
+      "title": "Missing Timesheet Days",
+      "order": 10,
+      "visible": true,
+      "widgetType": "LIST",
+      "graphType": "LIST",
+      "api": "/api/dashboard/missing-days",
+      "dataKey": "missingDays",
+
+      "style": {
+        "backgroundColor": "#FFFFFF",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16
+      },
+
+      "layout": {
+        "span": 1
+      }
+    },
+
+    {
+      "id": "recent-activity-section",
+      "title": "Recent Activity Feed",
+      "order": 11,
+      "visible": false,
+      "widgetType": "TIMELINE",
+      "graphType": "TIMELINE",
+      "api": "/api/dashboard/recent-activity",
+      "dataKey": "recentActivity",
+
+      "style": {
+        "backgroundColor": "#FFFFFF",
+        "padding": 16,
+        "margin": 12,
+        "borderRadius": 16
+      },
+
+      "layout": {
+        "span": 2,
+        "fullWidth": true
+      }
+    }
+  ]
+}

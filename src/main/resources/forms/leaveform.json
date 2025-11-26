@@ -1,0 +1,108 @@
+{
+  "formConfig": {
+    "backgroundColor": "#FFFFFF",
+    "padding": 16,
+    "rowSpacing": 12
+  },
+
+  "layout": {
+    "rows": [
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "details_view",
+            "key": "leave_details",
+            "config": {
+              "columns": 2,
+              "style": {
+                "labelColor": "#444444",
+                "valueColor": "#000000",
+                "fontSize": 15,
+                "labelWeight": "bold",
+                "gap": 12
+              },
+              "dataMap": {
+                "Leave Type": "leaveTypeName",
+                "Start Date": "startDate",
+                "End Date": "endDate",
+                "Session": "session",
+                "Total Days": "totalDays",
+                "Remarks": "remarks",
+                "Status": "status",
+                "Message": "message"
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "isFooter": true,
+        "layoutType": "alignment",
+        "alignment": "center",
+        "fieldGap": 16,
+        "fields": [
+          {
+            "type": "button",
+            "label": "Add Leave",
+
+             "action": {
+                "type": "add_leave",
+                "payload":{
+                "endpoint": "/api/forms/create_leave_form"
+                }
+              },
+            "config": {
+              "style": {
+                "backgroundColor": "#4CAF50",
+                "textColor": "#FFFFFF",
+                "padding": 12,
+                "borderRadius": 8
+              }
+             
+            }
+          },
+          {
+            "type": "button",
+            "label": "Edit",       
+             "action": {
+                "type": "edit_leave",
+                "payload":{
+                "endpoint": "/api/forms/modify_leave_form"
+                }
+              },
+            "config": {
+              "style": {
+                "backgroundColor": "#2196F3",
+                "textColor": "#FFFFFF",
+                "padding": 12,
+                "borderRadius": 8
+              }
+             
+            }
+          },
+          {
+            "type": "button",
+            "label": "Delete",
+             "action": {
+                "type": "delete_leave",
+                "payload":{
+                "endpoint": "/api/leaves/delete/{leaveId}"
+                }
+              },
+            "config": {
+              "style": {
+                "backgroundColor": "#F44336",
+                "textColor": "#FFFFFF",
+                "padding": 12,
+                "borderRadius": 8
+              }
+             
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

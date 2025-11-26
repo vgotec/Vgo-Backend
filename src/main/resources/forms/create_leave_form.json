@@ -1,0 +1,196 @@
+{
+  "title": "Apply Leave ",
+  "formConfig": {
+    "backgroundColor": "#FFFFFF",
+    "padding": 16,
+    "rowSpacing": 12
+  },
+  "layout": {
+    "rows": [
+      {
+       
+        "layoutType": "custom",
+         "fieldGap": 16.0,
+        "columns": 2,
+        "fields": [
+          {
+            "type": "date",
+            "key": "startDate",
+            "label": "Start Date",
+            "config": {
+              "readOnly": false,
+              "text": {
+                "placeholder": "Select start date"
+              },
+              "style": {
+                "labelColor": "#444444"
+              }
+            }
+          },
+          {
+            "type": "date",
+            "key": "endDate",
+            "label": "End Date",
+            "config": {
+              "readOnly": false,
+              "text": {
+                "placeholder": "Select end date"
+              },
+              "style": {
+                "labelColor": "#444444"
+              }
+            }
+          }
+        ]
+      },
+      {
+       "layoutType": "custom",
+        "fieldGap": 16.0,
+        "columns": 2,
+        "fields": [
+          {
+            "type": "dropdown",
+            "key": "leaveTypeName",
+            "label": "Leave Type",
+            "config": {
+              "readOnly": false,
+              "text": {
+                "placeholder": "Choose leave type"
+              },
+              "data": {
+                "options": [], 
+                "dataSource": {
+                  "labelField": "label",
+                  "valueField": "value"
+                }
+              }
+            }
+          },
+          {
+            "type": "dropdown",
+            "key": "session",
+            "label": "Session",
+            "config": {
+              "readOnly": false,
+              "text": {
+                "placeholder": "Choose session"
+              },
+              "data": {
+                "options": [
+                  { "label": "FULL_DAY", "value": "FULL_DAY" },
+                  { "label": "FIRST_HALF", "value": "FIRST_HALF" },
+                  { "label": "SECOND_HALF", "value": "SECOND_HALF" }
+                ],
+                "dataSource": {
+                  "labelField": "label",
+                  "valueField": "value"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "layoutType": "single",
+        "fields": [
+          {
+            "type": "dropdown",
+            "key": "status",
+            "label": "Status",
+            "defaultValue": "NEW",
+            "config": {
+
+              "behavior":{"readOnly": true},
+              "text": {
+                "placeholder": "Status"
+              },
+              "data": {
+                "options": [
+                  { "label": "NEW", "value": "NEW" },
+                  { "label": "SUBMITTED", "value": "SUBMITTED" },
+                  { "label": "APPROVED", "value": "APPROVED" },
+                  { "label": "REJECTED", "value": "REJECTED" }
+                ],
+                "dataSource": {
+                  "labelField": "label",
+                  "valueField": "value"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "layoutType": "single",
+        "fields": [
+          {
+            "type": "textarea",
+            "key": "remarks",
+            "label": "Remarks",
+            "config": {
+              "text": {
+                "placeholder": "Enter reason"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "layoutType": "alignment",
+        "alignment": "center",
+        "isFooter": true,
+        "fields": [
+          {
+            "type": "button",
+            "key": "submit",
+            "label": "Submit",
+            "action": {
+              "type": "submit",
+              "payload": {
+                "endpoint": "/api/leaves/submit/f0c6b828-5177-420d-b237-f5e499359eb3"
+              }
+            },
+            "config": {
+              "style": {
+                "backgroundColor": "#198754",
+                "textColor": "#FFFFFF",
+                "fontSize": 16
+              },
+              "placement": {
+                "width": 150,
+                "height": 48
+              }
+            }
+          },
+          {
+            "type": "spacer",
+            "config": {
+              "placement": {
+                "width": 20
+              }
+            }
+          },
+          {
+            "type": "button",
+            "key": "reset",
+            "label": "Reset",
+            "action": {
+              "type": "reset"
+            },
+            "config": {
+              "style": {
+                "backgroundColor": "#6C757D",
+                "textColor": "#FFFFFF",
+                "fontSize": 16
+              },
+              "placement": {
+                "width": 150,
+                "height": 48
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

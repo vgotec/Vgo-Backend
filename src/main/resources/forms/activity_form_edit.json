@@ -1,0 +1,182 @@
+{
+  "title": "Edit Activity",
+  "layout": {
+    "rows": [
+      {
+        "layoutType": "custom",
+        "fieldGap": 16.0,
+        "fields": [
+          {
+            "type": "dropdown",
+            "label": "Project *",
+            "key": "project",
+            "config": {
+              "placement": { "flex": 1 },
+              "style": {
+                "labelColor": "#333333",
+                "borderColor": "#007BFF"
+              },
+              "behavior": { "required": true },
+              "data": {
+                "options": []   
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "custom",
+        "fieldGap": 16.0,
+        "fields": [
+          {
+            "type": "dropdown",
+            "label": "Activity *",
+            "key": "activity",
+            "config": {
+              "placement": { "flex": 1 },
+              "style": {
+                "labelColor": "#333333",
+                "borderColor": "#007BFF"
+              },
+              "behavior": { "required": true },
+              "data": {
+                "options": []   
+              }
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "Category",
+            "key": "category",
+            "config": {
+              "placement": { "flex": 1 },
+              "style": {
+                "labelColor": "#333333",
+                "borderColor": "#DDDDDD"
+              },
+              "data": {
+                "options": []   
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "textarea",
+            "label": "Description",
+            "key": "description",
+            "config": {
+              "placement": { "maxLines": 4 },
+              "style": {
+                "labelColor": "#555555",
+                "backgroundColor": "#F9F9F9"
+              },
+              "text": {
+                "placeholder": "Enter detailed description of your activity..."
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "custom",
+        "fieldGap": 16.0,
+        "fields": [
+          {
+            "type": "time_picker",
+            "label": "Start Time",
+            "key": "startTime",
+            "config": {
+              "placement": { "flex": 1 },
+              "style": { "labelColor": "#555555" },
+              "behavior": { "required": true }
+            }
+          },
+          {
+            "type": "time_picker",
+            "label": "End Time",
+            "key": "endTime",
+            "config": {
+              "placement": { "flex": 1 },
+              "style": { "labelColor": "#555555" },
+              "behavior": { "required": true }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "hours_label",
+            "label": "Total Duration",
+            "key": "workHours",
+            "config": {
+              "style": {
+                "labelColor": "#333333",
+                "textColor": "#007BFF",
+                "fontSize": 16
+              },
+              "computed": {
+                "dependsOn": ["startTime", "endTime"],
+                "formula": "if(startTime && endTime){ const s=new Date(`1970-01-01T${startTime}`); const e=new Date(`1970-01-01T${endTime}`); const h=(e-s)/3600000; return h>=0?h.toFixed(2):'0.00'; } else { return '0.00'; }"
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "alignment",
+        "alignment": "center",
+        "fields": [
+          {
+            "type": "button",
+            "label": "Reset",
+            "key": "reset",
+            "action": { "type": "reset" },
+            "config": {
+              "style": {
+                "backgroundColor": "#6c757d",
+                "textColor": "#FFFFFF",
+                "fontSize": 16
+              },
+              "placement": { "width": 150, "height": 50 }
+            }
+          },
+          {
+            "type": "spacer",
+            "key": "spacer1",
+            "config": { "placement": { "width": 20 } }
+          },
+          {
+            "type": "button",
+            "label": "Update Activity",
+            "key": "submit",
+            "action": {
+              "type": "submit",
+              "payload": {
+              "endpoint":  "/api/activities/update/{id}"
+              }
+            },
+            "config": {
+              "style": {
+                "backgroundColor": "#007BFF",
+                "textColor": "#FFFFFF",
+                "fontSize": 16
+              },
+              "placement": { "width": 150, "height": 50 }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

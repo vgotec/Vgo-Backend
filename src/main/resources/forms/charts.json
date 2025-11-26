@@ -1,0 +1,143 @@
+{
+  "formConfig": {
+    "backgroundColor": "#FFFFFF",
+    "padding": 12,
+    "rowSpacing": 12
+  },
+  "layout": {
+    "rows": [
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "stacked_bar",
+            "key": "timesheet_daily_hours",
+            "label": "Timesheet Daily Hours",
+            "config": {
+              "style": {
+                "height": 280,
+                "backgroundColor": "#FFFFFF",
+                "titleColor": "#1565C0",
+                "padding": 16,
+                "margin": 12,
+                "borderRadius": 16,
+                "colors": {
+                  "development": "#42A5F5",
+                  "testing": "#66BB6A",
+                  "documentation": "#FFA726",
+                  "meeting": "#AB47BC"
+                }
+              },
+              "chartOptions": {
+                "showLegend": true,
+                "legendPosition": "bottom",
+                "xAxisLabelColor": "#424242",
+                "yAxisLabelColor": "#424242",
+                "animationDuration": 1200
+              },
+              "data": {
+                "dailyActivityHours": {},
+                "totalHoursWorked": null
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "leave",
+            "key": "leave_usage_trend",
+            "label": "Leave Usage Trend",
+            "config": {
+              "style": {
+                "height": 240,
+                "backgroundColor": "#FFFFFF",
+                "titleColor": "#1565C0",
+                "padding": 12,
+                "margin": 12,
+                "borderRadius": 16,
+                "lineColor": "#FF7043"
+              },
+              "chartOptions": {
+                "lineThickness": 3,
+                "markerVisibility": true,
+                "animationDuration": 1500
+              },
+              "data": {
+                "monthlyLeaveDays": {}
+              }
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "leaveKpi",
+            "key": "leave_kpi_section",
+            "label": "Leave Balance (KPI Cards)",
+            "config": {
+              "style": {
+                "height": 250,
+                "backgroundColor": "#F5F5F5",
+                "padding": 12,
+                "margin": 12,
+                "borderRadius": 16,
+                "kpiCardColor": "#FFFFFF",
+                "kpiTitleColor": "#424242",
+                "kpiValueColor": "#1565C0"
+              },
+              "data": []
+            }
+          }
+        ]
+      },
+
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "gauge",
+            "key": "monthly_productivity_kpi",
+            "label": "Monthly Productivity Score",
+            "config": {
+              "style": {
+                "height": 260,
+                "backgroundColor": "#FFFFFF",
+                "titleColor": "#1565C0",
+                "padding": 16,
+                "margin": 12,
+                "borderRadius": 16
+              },
+              "chartOptions": {
+                "gaugeStartAngle": 180,
+                "gaugeEndAngle": 0,
+                "rangeColors": [
+                  "#E57373",
+                  "#FFB74D",
+                  "#81C784"
+                ],
+                "animationDuration": 1500
+              },
+              "data": {
+                "workingDays": null,
+                "totalHoursWorked": null,
+                "expectedHours": null,
+                "productivityPercentage": null,
+                "category": null
+              }
+            },
+            "layout": {
+              "span": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

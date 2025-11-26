@@ -1,0 +1,187 @@
+{
+  "formConfig": {
+    "backgroundColor": "#FFFFFF",
+    "padding": 16,
+    "rowSpacing": 16
+  },
+  "layout": {
+    "rows": [
+      {
+        "layoutType": "expanded",
+        "fields": [
+          {
+            "type": "table",
+            "key": "timesheet_table",
+            "label": "Timesheet Activities",
+            "dataKey": "activities",
+            "columns": [
+              {
+                "key": "project",
+                "label": "Project",
+                "type": "dropdown"
+              },
+              {
+                "key": "activity",
+                "label": "Activity",
+                "type": "text",
+                "tooltip": true
+              },
+              {
+                "key": "description",
+                "label": "Description",
+                "type": "textarea"
+              },
+              {
+                "key": "startTime",
+                "label": "Start Time",
+                "type": "time"
+              },
+              {
+                "key": "endTime",
+                "label": "End Time",
+                "type": "time"
+              },
+              {
+                "key": "workHours",
+                "label": "Hours",
+                "type": "number"
+              },
+              {
+                "key": "actions",
+                "label": "Actions",
+                "type": "actions",
+                "icons": [
+                  {
+                    "name": "edit",
+                    "color": "#0D6EFD",
+                    "tooltip": "Edit Row",
+                    "action": {
+                      "type": "edit_row",
+                      "payload": {
+                "endpoint": "/api/forms/activity_form_edit"
+                      
+                       
+                      
+                      }
+                    }
+                  },
+                  {
+                    "name": "delete",
+                    "color": "#DC3545",
+                    "tooltip": "Delete Row",
+                    "action": {
+                      "type": "delete_row",
+                       "payload": {
+                "endpoint": "/api/activities/delete/{id}"
+                }
+                    }
+                  }
+                ]
+              }
+            ],
+            "rows": [],
+            "style": {
+              "borderColor": "#E0E0E0",
+              "headerColor": "#F9FAFB",
+              "textColor": "#111827",
+              "borderWidth": 1,
+              "elevation": 2,
+              "borderRadius": 8
+            }
+          }
+        ]
+      },
+      {
+        "layoutType": "alignment",
+        "alignment": "center",
+        "isFooter": true,
+        "fields": [
+          {
+            "type": "button",
+            "label": "Submit",
+            "key": "submit",
+            "action": {
+              "type": "submit",
+                "payload": {
+                "endpoint": "/api/timesheet/submit/{id}"
+                }
+            },
+            "config": {
+              "style": {
+                "backgroundColor": "#198754",
+                "textColor": "#FFFFFF",
+                "fontSize": 16
+              },
+              "placement": {
+                "width": 150,
+                "height": 48
+              }
+            }
+          },
+          {
+            "type": "spacer",
+            "key": "spacer1",
+            "config": {
+              "placement": {
+                "width": 20
+              }
+            }
+          },
+          {
+            "type": "button",
+            "label": "Delete",
+            "key": "delete",
+            "action": {
+              "type": "delete_timesheet",
+              "payload": {
+                "endpoint": "/api/timesheet/delete/{id}"
+              }
+            },
+            "config": {
+              "style": {
+                "backgroundColor": "#DC3545",
+                "textColor": "#FFFFFF",
+                "fontSize": 16
+              },
+              "placement": {
+                "width": 150,
+                "height": 48
+              }
+            }
+          },
+          {
+            "type": "spacer",
+            "key": "spacer2",
+            "config": {
+              "placement": {
+                "width": 20
+              }
+            }
+          },
+          {
+            "type": "button",
+            "label": "Add New",
+            "key": "add_new",
+            "action": {
+              "type": "add_new",
+              "payload":{
+              "endpoint": "/api/forms/activity_form"
+                }
+            },
+            "config": {
+              "style": {
+                "backgroundColor": "#0D6EFD",
+                "textColor": "#FFFFFF",
+                "fontSize": 16
+              },
+              "placement": {
+                "width": 150,
+                "height": 48
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
