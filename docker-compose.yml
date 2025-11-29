@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ChangeNew_26
+      POSTGRES_DB: hrms_tool
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    networks:
+      - vgo-net
+
+  backend:
+    build: .
+    image: timesheet-backend:latest
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://db:5432/hrms_tool"
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: ChangeNew_26
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SERVER_PORT: 8080
+      LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: DEBUG
+      SPRING_OUTPUT_ANSI_ENABLED: "ALWAYS"
+    ports:
+      - "8080:8080"
+    networks:
+      - vgo-net
+
+volumes:
+  dbdata:
+
+networks:
+  vgo-net:
+    driver: bridge
