@@ -147,7 +147,7 @@
             "action": {
               "type": "submit",
               "payload": {
-                $16336633c-9ce9-4f16-93d7-c535f3e0b26d"
+                "endpoint": "/api/leaves/submit/f0c6b828-5177-420d-b237-f5e499359eb3"
               }
             },
             "config": {
