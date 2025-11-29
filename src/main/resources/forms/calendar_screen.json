@@ -17,7 +17,7 @@
             "dataKey": "dateStatuses",
             "config": {
               "api": {
-                $16336633c-9ce9-4f16-93d7-c535f3e0b26d"
+                "endpoint": "/api/timesheet/status_calendar/6336633c-9ce9-4f16-93d7-c535f3e0b26d"
               },
               "style": {
                 "width": 800,
@@ -39,7 +39,7 @@
             },
             "action": {
               "type": "navigateTo",
-              $16336633c-9ce9-4f16-93d7-c535f3e0b26d",
+              "endpoint": "/api/timesheet/get-or-create/6336633c-9ce9-4f16-93d7-c535f3e0b26d",
               "navigationTarget":"TimesheetFormScreen"
             }
           }
