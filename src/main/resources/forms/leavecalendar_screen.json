@@ -18,7 +18,7 @@
             "dataKey": "dateStatuses",
             "config": {
               "api": {
-                "endpoint": "/api/leaves/6336633c-9ce9-4f16-93d7-c535f3e0b26d/calendar"
+                "endpoint": "/api/leaves/f0c6b828-5177-420d-b237-f5e499359eb3/calendar"
               },
               "style": {
                 "width": 800,
@@ -40,7 +40,7 @@
             },
             "action": {
               "type": "navigateTo",
-              "endpoint": "/api/leaves/leave/by-date/6336633c-9ce9-4f16-93d7-c535f3e0b26d",
+              "endpoint": "/api/leaves/leave/by-date/f0c6b828-5177-420d-b237-f5e499359eb3",
               "navigationTarget": "LeaveForm"           
             }
           }
