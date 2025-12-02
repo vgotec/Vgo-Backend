@@ -43,4 +43,10 @@ public class FormControllerImpl implements FormController {
         return ResponseEntity.ok(dashboardJson);
     }
 
+    @GetMapping("/api/debug/health")
+public ResponseEntity<String> health() {
+    return ResponseEntity.ok("ok");
+}
+
+
 }
